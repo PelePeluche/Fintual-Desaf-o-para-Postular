@@ -30,6 +30,7 @@ class Portfolio:
     def __init__(self):
         self.stocks = {}
 
+    # Class method that allows to initialize the portfolio with stocks and their quantity. The stocks must be passed as a dictionary of the form {stock: quantity}.
     @classmethod
     def portfolio_with_stocks(cls, dict):
         portfolio = cls()
@@ -40,6 +41,7 @@ class Portfolio:
     def __str__(self):
         return str(self.stocks)
 
+    # Method to add 'quantity' of 'stock' to the portfolio. If 'quantity' is a negative number, 'quantity' of 'stock' will be removed from the portfolio.
     def add_stock(self, stock, quantity):
         if type(stock) != Stock or type(quantity) != int:
             print("The input types are not correct")
@@ -57,6 +59,7 @@ class Portfolio:
                 except NameError:
                     print("There is no such stock")
 
+    # Method that allows obtaining the annualized profit, given as a percentage, for the entire portfolio between the dates indicated. Dates must be entered as a string in the format 'YY/MM/DD'.
     def profit(self, date_string_1, date_string_2):
         profit = 0
         initial_investment = 0
